@@ -26,17 +26,17 @@ class Shop extends Component{
 
       if(alreadyAdded)
         {
-          groceryAmount += alreadyAdded.amount; 
-          tmpState.inBasket = tmpState.inBasket.filter((item) => 
-            item.label !== grocery
-          );
+          alreadyAdded.amount++;
         }
 
-      let groceryItem = {
-        label: grocery,
-        amount: groceryAmount
+      else
+      {
+        let groceryItem = {
+          label: grocery,
+          amount: groceryAmount
+        }
+        tmpState.inBasket.push(groceryItem);
       }
-      tmpState.inBasket.push(groceryItem);
 
       return tmpState;
     });

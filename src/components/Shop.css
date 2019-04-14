@@ -20,6 +20,14 @@ ul{
 
 .DeleteButton{
   font-size: 18px;
+  font-weight: 600;
   height: 100%;
   padding: 10px 20px;
+  background-color: #e2af22;
+  color: white;
+  border: none;
+}
+
+.BackgroundGrey{
+  background-color: lightgrey;
 }

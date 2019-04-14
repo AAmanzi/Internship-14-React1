@@ -1,7 +1,8 @@
 li{
   display: flex;
   font-size: 26px;
-  margin: 25px 0;
+  padding: 20px 0;
+  border-radius: 2px;
 }
 
 .Deleted{

@@ -27,7 +27,7 @@ class Grocery extends Component{
 
   render(){
     return(
-      <li>
+      <li className={this.props.className}>
         <span className={this.props.isBasketItem ? "ButtonRemove" : "ButtonAdd"}
           onClick={this.handleChange.bind(this)}>{this.props.isBasketItem ? "-" : "+"}
         </span>

@@ -69,8 +69,8 @@ class Shop extends Component{
           <h2 className="GroceriesTitle">Groceries</h2>
           <ul>
             {IN_SHOP.map((groceryItem, index) =>
-              <Grocery key={index} onChange={(groceryItem) => this.addToBasket(groceryItem)} 
-              label={groceryItem}/>
+              <Grocery key={index} className={index % 2 ? "BackgroundGrey" : ""}
+              onChange={(groceryItem) => this.addToBasket(groceryItem)} label={groceryItem}/>
             )}
           </ul>
         </div>
@@ -82,7 +82,8 @@ class Shop extends Component{
           </div>
           <ul>
               {this.state.inBasket.map((groceryItem, index) =>
-                <Grocery key={index} onChange={(groceryItem) => this.removeFromBasket(groceryItem)}
+                <Grocery key={index} className={index % 2 ? "BackgroundGrey" : ""} 
+                  onChange={(groceryItem) => this.removeFromBasket(groceryItem)}
                   amount={groceryItem.amount} label={groceryItem.label} isBasketItem={true}/>  
               )}
           </ul>

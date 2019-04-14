@@ -1,0 +1,9 @@
+ul{
+  list-style: none;
+  width: 40%;
+}
+
+.GroceryLists{
+  display: flex;
+  justify-content: center;
+}

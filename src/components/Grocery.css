@@ -1,7 +1,27 @@
 li{
   display: flex;
+  font-size: 26px;
+  margin: 25px 0;
 }
 
 .Deleted{
   text-decoration: line-through;
+}
+
+.ButtonAdd{
+  font-weight: 900;
+  color: white;
+  background-color: green;
+  padding: 0 6px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.ButtonRemove{
+  font-weight: 900;
+  color: white;
+  background-color: red;
+  padding: 0 9px;
+  border-radius: 5px;
+  margin-right: 10px;
 }

@@ -66,7 +66,7 @@ class Shop extends Component{
     return (
       <div className="GroceryLists">
         <div className="Items">
-          <h2>Groceries</h2>
+          <h2 className="GroceriesTitle">Groceries</h2>
           <ul>
             {IN_SHOP.map((groceryItem, index) =>
               <Grocery key={index} onChange={(groceryItem) => this.addToBasket(groceryItem)} 

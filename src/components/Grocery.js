@@ -28,10 +28,12 @@ class Grocery extends Component{
   render(){
     return(
       <li>
-        <span onClick={this.handleChange.bind(this)}>{this.props.isBasketItem ? "-" : "+"}</span>
+        <span className={this.props.isBasketItem ? "ButtonRemove" : "ButtonAdd"}
+          onClick={this.handleChange.bind(this)}>{this.props.isBasketItem ? "-" : "+"}
+        </span>
         <div className={this.state.isDeleted ? "Deleted" : ""} 
           onClick={() => this.toggleDelete()}>
-          {this.props.isBasketItem ? this.props.amount : ""}
+          {this.props.isBasketItem ? this.props.amount + "  " : ""}
           {this.props.label}
         </div>
       </li>

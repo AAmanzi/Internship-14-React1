@@ -29,6 +29,7 @@ ul{
   background-color: #e2af22;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 .BackgroundGrey{

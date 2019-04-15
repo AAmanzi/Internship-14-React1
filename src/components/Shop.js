@@ -18,7 +18,6 @@ class Shop extends Component{
   addToBasket = (grocery) => {
     this.setState((prevState) => {
       let tmpState = prevState;
-      let groceryAmount = 1;
       let alreadyAdded = tmpState.inBasket.find((item) => 
           item.label === grocery
         );
@@ -30,7 +29,7 @@ class Shop extends Component{
       {
         let groceryItem = {
           label: grocery,
-          amount: groceryAmount
+          amount: 1
         }
         tmpState.inBasket.push(groceryItem);
       }

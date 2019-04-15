@@ -2,18 +2,17 @@ import React, {Component} from 'react';
 import Grocery from "./Grocery";
 import "./Shop.css";
 
-const START_STATE = {
-  inBasket: []
-}
-const IN_SHOP = ["Strawberry", "Bluberry", "Banana", "Ebonyberry", "Apricot", 
-  "Peach", "Celery", "Elderflower", "Elven bread", "African swallow", 
+const IN_SHOP = ["Strawberry", "Bluberry", "Banana", "Blackberry", "Apricot", 
+  "Peach", "Celery", "Elderberry", "Elven bread", "African swallow", 
   "European swallow"];
 
 class Shop extends Component{
   constructor(props){
     super(props);
 
-    this.state = START_STATE;
+    this.state = {
+      inBasket: []
+    };
   }
 
   addToBasket = (grocery) => {
@@ -78,11 +77,11 @@ class Shop extends Component{
         <div className="Items">
           <div className="BasketTitle">
               <h2>Basket</h2>
-              <button onClick={() => this.deleteBasket()} className="DeleteButton">Delete all</button>
+              <button onClick={() => this.deleteBasket()} className="DeleteButton">Empty basket</button>
           </div>
           <ul>
               {this.state.inBasket.map((groceryItem, index) =>
-                <Grocery key={index} className={index % 2 ? "BackgroundGrey" : ""} 
+                <Grocery key={index} className={index % 2 ? "" : "BackgroundGrey"} 
                   onChange={(groceryItem) => this.removeFromBasket(groceryItem)}
                   amount={groceryItem.amount} label={groceryItem.label} isBasketItem={true}/>  
               )}

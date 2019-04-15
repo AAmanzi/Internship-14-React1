@@ -33,7 +33,9 @@ class Grocery extends Component{
         </span>
         <div className={this.state.isDeleted ? "Deleted" : ""} 
           onClick={() => this.toggleDelete()}>
-          {this.props.isBasketItem ? this.props.amount + "  " : ""}
+          {this.props.isBasketItem ? 
+            <span className="GroceryAmount">{this.props.amount}</span> : ""
+          }
           {this.props.label}
         </div>
       </li>

@@ -11,14 +11,14 @@ class Shop extends Component{
     super(props);
 
     this.state = {
-      inBasket: []
+      itemsInBasket: []
     };
   }
 
   addToBasket = (grocery) => {
     this.setState((prevState) => {
-      let tmpState = prevState;
-      let alreadyAdded = tmpState.inBasket.find((item) => 
+      let tmpItems = [...prevState.itemsInBasket];
+      let alreadyAdded = tmpItems.find((item) => 
           item.label === grocery
         );
 
@@ -27,37 +27,37 @@ class Shop extends Component{
 
       else
       {
-        let groceryItem = {
+        let selectedItem = {
           label: grocery,
           amount: 1
         }
-        tmpState.inBasket.push(groceryItem);
+        tmpItems.push(selectedItem);
       }
 
-      return tmpState;
+      return {itemsInBasket: tmpItems};
     });
   }
 
   removeFromBasket = (grocery) => {
     this.setState((prevState) => {
-      let tmpState = prevState;
-      let groceryItem = tmpState.inBasket.find((item) =>
+      let tmpItems = [...prevState.itemsInBasket];
+      let selectedItem = tmpItems.find((item) =>
         item.label === grocery
       )
 
-      groceryItem.amount--;
-      if(groceryItem.amount === 0){
-        tmpState.inBasket = tmpState.inBasket.filter((item) => 
+      selectedItem.amount--;
+      if(selectedItem.amount === 0){
+        tmpItems = tmpItems.filter((item) => 
           item.label !== grocery 
         )
       }
 
-      return tmpState;
+      return {itemsInBasket: tmpItems};
     })
   }
 
   deleteBasket = () => {
-    this.setState({inBasket: []});
+    this.setState({itemsInBasket: []});
   }
 
   render() {
@@ -66,9 +66,9 @@ class Shop extends Component{
         <div className="Items">
           <h2 className="GroceriesTitle">Groceries</h2>
           <ul>
-            {IN_SHOP.map((groceryItem, index) =>
+            {IN_SHOP.map((selectedItem, index) =>
               <Grocery key={index} className={index % 2 ? "BackgroundGrey" : ""}
-              onChange={(groceryItem) => this.addToBasket(groceryItem)} label={groceryItem}/>
+              onChange={(selectedItem) => this.addToBasket(selectedItem)} label={selectedItem}/>
             )}
           </ul>
         </div>
@@ -79,10 +79,10 @@ class Shop extends Component{
               <button onClick={() => this.deleteBasket()} className="DeleteButton">Empty basket</button>
           </div>
           <ul>
-              {this.state.inBasket.map((groceryItem, index) =>
+              {this.state.itemsInBasket.map((selectedItem, index) =>
                 <Grocery key={index} className={index % 2 ? "" : "BackgroundGrey"} 
-                  onChange={(groceryItem) => this.removeFromBasket(groceryItem)}
-                  amount={groceryItem.amount} label={groceryItem.label} isBasketItem={true}/>  
+                  onChange={(selectedItem) => this.removeFromBasket(selectedItem)}
+                  amount={selectedItem.amount} label={selectedItem.label} isBasketItem={true}/>  
               )}
           </ul>
         </div>

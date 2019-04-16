@@ -18,10 +18,7 @@ class Grocery extends Component{
     if(!this.props.isBasketItem)
       return;
     this.setState((prevState) => {
-      let tmpState = prevState;
-      tmpState.isDeleted = !prevState.isDeleted;
-
-      return tmpState;
+      return {isDeleted: !prevState.isDeleted};
     })
   }
 

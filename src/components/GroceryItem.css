@@ -1,0 +1,9 @@
+.AddItemButton{
+  font-weight: 900;
+  color: white;
+  background-color: #00baba;
+  padding: 0 6px;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+}

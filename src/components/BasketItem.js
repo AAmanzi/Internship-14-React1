@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import "./Grocery.css"
+import "./BasketItem.css"
 
-class Grocery extends Component{
+class BasketItem extends Component{
   constructor(props){
     super(props);
 
@@ -15,8 +15,6 @@ class Grocery extends Component{
   }
 
   toggleDelete = () => {
-    if(!this.props.isBasketItem)
-      return;
     this.setState((prevState) => {
       return {isDeleted: !prevState.isDeleted};
     })
@@ -25,14 +23,13 @@ class Grocery extends Component{
   render(){
     return(
       <li className={this.props.className}>
-        <span className={this.props.isBasketItem ? "ButtonRemove" : "ButtonAdd"}
-          onClick={this.handleChange.bind(this)}>{this.props.isBasketItem ? "-" : "+"}
+        <span className="RemoveItemButton"
+          onClick={this.handleChange.bind(this)}>
+          -
         </span>
         <div className={this.state.isDeleted ? "Deleted" : ""} 
           onClick={() => this.toggleDelete()}>
-          {this.props.isBasketItem ? 
-            <span className="GroceryAmount">{this.props.amount}</span> : ""
-          }
+          <span className="BasketItemAmount">{this.props.amount}</span>
           {this.props.label}
         </div>
       </li>
@@ -40,4 +37,4 @@ class Grocery extends Component{
   }
 }
 
-export default Grocery;
+export default BasketItem;

@@ -1,8 +1,16 @@
 ul{
   list-style: none;
-  width: 100%;
+  width: 95%;
   margin: 0;
   padding: 0;
+}
+
+li{
+  display: flex;
+  font-size: 26px;
+  padding: 15px 0;
+  border-radius: 2px;
+  margin-bottom: 10px;
 }
 
 .GroceryLists{
@@ -21,7 +29,7 @@ ul{
   align-items: center;
 }
 
-.DeleteButton{
+.EmptyBasketButton{
   font-size: 18px;
   font-weight: 600;
   height: 100%;
@@ -32,8 +40,12 @@ ul{
   cursor: pointer;
 }
 
-.BackgroundGrey{
+.BackgroundLightTeal{
   background-color: #d7f2f2;
+}
+
+.BackgroundGrey{
+  background-color: #f2f9f9;
 }
 
 ::selection {

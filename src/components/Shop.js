@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Grocery from "./Grocery";
+import GroceryItem from "./GroceryItem";
+import BasketItem from "./BasketItem";
 import "./Shop.css";
 
 const IN_SHOP = ["Strawberry", "Bluberry", "Banana", "Blackberry", "Apricot", 
@@ -56,7 +57,7 @@ class Shop extends Component{
     })
   }
 
-  deleteBasket = () => {
+  emptyBasket = () => {
     this.setState({itemsInBasket: []});
   }
 
@@ -67,7 +68,7 @@ class Shop extends Component{
           <h2 className="GroceriesTitle">Groceries</h2>
           <ul>
             {IN_SHOP.map((selectedItem, index) =>
-              <Grocery key={index} className={index % 2 ? "BackgroundGrey" : ""}
+              <GroceryItem key={index} className={index % 2 ? "BackgroundGrey" : "BackgroundLightTeal"}
               onChange={(selectedItem) => this.addToBasket(selectedItem)} label={selectedItem}/>
             )}
           </ul>
@@ -76,13 +77,13 @@ class Shop extends Component{
         <div className="Items">
           <div className="BasketTitle">
               <h2>Basket</h2>
-              <button onClick={() => this.deleteBasket()} className="DeleteButton">Empty basket</button>
+              <button onClick={() => this.emptyBasket()} className="EmptyBasketButton">Empty basket</button>
           </div>
           <ul>
               {this.state.itemsInBasket.map((selectedItem, index) =>
-                <Grocery key={index} className={index % 2 ? "" : "BackgroundGrey"} 
+                <BasketItem key={index} className={index % 2 ? "BackgroundGrey" : "BackgroundLightTeal"} 
                   onChange={(selectedItem) => this.removeFromBasket(selectedItem)}
-                  amount={selectedItem.amount} label={selectedItem.label} isBasketItem={true}/>  
+                  amount={selectedItem.amount} label={selectedItem.label}/>  
               )}
           </ul>
         </div>
